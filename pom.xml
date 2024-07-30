@@ -49,6 +49,28 @@
     </distributionManagement>
 
     <profiles>
+
+        <!-- New DB2 profile -->
+        <profile>
+            <id>db2</id>
+            <activation>
+                <property>
+                    <name>env.BENCHBASE_PROFILE</name>
+                    <value>db2</value>
+                </property>
+            </activation>
+            <properties>
+                <classifier>db2</classifier>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>com.ibm.db2</groupId>
+                    <artifactId>jcc</artifactId>
+                    <version>11.5.9.0</version>
+                </dependency>
+            </dependencies>
+        </profile>
+
         <profile>
             <id>sqlite</id>
             <activation>
@@ -68,6 +90,7 @@
                 </dependency>
             </dependencies>
         </profile>
+
         <profile>
             <id>postgres</id>
             <activation>
